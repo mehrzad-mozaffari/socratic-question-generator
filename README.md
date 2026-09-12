@@ -1,6 +1,8 @@
 # Socratic Coding Tutor
 
-A research-oriented LLM-based Socratic debugging tutor. The main pipeline: dialogue parsing, progression analysis, SFT dataset construction, QLoRA training, inference, Gradio tutoring, chat-log enrichment, reference-test evaluation, and visualization.
+A research-oriented LLM-based Socratic debugging tutor. 
+The main pipeline: 
+dialogue parsing -> progression analysis -> SFT dataset construction -> QLoRA training -> inference -> Gradio tutoring -> chat-log enrichment -> reference-test evaluation -> visualization
 
 ## Architecture
 
