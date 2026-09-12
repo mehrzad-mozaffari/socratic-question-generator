@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+env/
+.env
+.ipynb_checkpoints/
+.DS_Store
+
+# Data / artifacts
+data/raw/*
+data/processed/*
+!data/raw/dialogues/.gitkeep
+!data/processed/.gitkeep
+logs/*
+models/*
+results/*
+!results/.gitkeep
+
+# Large model / training artifacts
+*.safetensors
+*.bin
+*.pt
+*.pth
+checkpoint-*/

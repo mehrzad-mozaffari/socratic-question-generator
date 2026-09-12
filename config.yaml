@@ -1,0 +1,55 @@
+project:
+  name: socratic-tutor
+  version: 0.1.0
+
+paths:
+  raw_dialogues: data/raw/dialogues
+  legacy_parsed: data/processed/legacy_parsed
+  parsed_jsonl: data/processed/jsonl
+  parsed_csv: data/processed/csv
+  progression_input: data/processed/jsonl
+  progression_csv: data/processed/progression/dialogue_turns_progression.csv
+  training_dataset: data/processed/jsonl/combined.jsonl
+  chat_logs: logs/chat
+  combined_chat_logs: data/evaluation/combined_chat_logs.jsonl
+  chat_logs_with_tests: data/evaluation/combined_chat_logs_with_tests.jsonl
+  chat_logs_with_tests_titles: data/evaluation/combined_chat_logs_with_tests_titles.jsonl
+  evaluated_chat_logs: data/evaluation/combined_chat_logs_with_tests_titles_ordered.jsonl
+  evaluation_csv: results/evaluation/eval_results.csv
+  figures: results/figures
+  model_dir: models/socratic_phi3_lora
+
+model:
+  base_model: microsoft/Phi-3-mini-4k-instruct
+  adapter_dir: models/socratic_phi3_lora
+  merged_model_dir: ""
+  max_new_tokens: 48
+  max_input_tokens: 1024
+  temperature: 0.7
+  top_p: 0.9
+  repetition_penalty: 1.1
+
+training:
+  output_dir: models/socratic_phi3_lora
+  epochs: 2
+  train_batch_size: 2
+  eval_batch_size: 2
+  gradient_accumulation_steps: 8
+  learning_rate: 0.0002
+  logging_steps: 20
+  eval_steps: 200
+  save_steps: 200
+  save_total_limit: 2
+  warmup_ratio: 0.05
+  max_length: 1024
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  use_alternatives: true
+  train_split: 0.9
+  seed: 42
+
+runtime:
+  use_merged: false
+  greedy: true
+  trust_remote_code: true
